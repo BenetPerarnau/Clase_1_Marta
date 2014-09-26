@@ -58,53 +58,99 @@ public class Ex1 {
 		int val=Ex1.pedirvalor(op, array);//demanar nou valor
 		op=3;
 		int pos=Ex1.pedirvalor(op,array);//demanr pos on anira el nou valor
-		array=Ex1.modificar(array, val, pos);//modificar
+		array=Ex1.modificar(array, val, pos);//modificar posar nou valor en la pos indicada
 		Ex1.imprimir(array);
 		Ex1.get_MaxMin(array);
 		Ex1.get_media(array);
 		
 	}
 	public static int pedirvalor(byte op, int[]array) throws NumberFormatException, IOException{
+		/*
+		 * Aquest metode el que fa es demanar valors al usuari.
+		 * Depenent del valor de op demanara una cosa o una altre.
+		 * Tambe rep el array per quan el usuari ha d'indicar una pos d'aquest array no es pasi de rang
+		 */
 		int valor=0;
+		boolean correcto=true;
 		switch (op){
 		case 1:
 			do{
+				try{
 				System.out.print("Dimension del array => ");
 				valor=Integer.parseInt(stdin.readLine());
+				correcto=true;
+				}catch(Exception e){
+					System.out.println("Dimension del array incorrecta.");
+				}
 			}while(valor<=0);
 			break;
 		case 2:
+			correcto=true;
+			do{
+			try{
 			System.out.print("Introduce un valor => ");
 			valor=Integer.parseInt(stdin.readLine());
+			correcto=true;
+			}catch(Exception e){
+				System.out.println("El valor debe ser numerico.");
+				correcto=false;
+			}
+			}while(correcto==false);
 			break;
 		case 3:
+			correcto=true;
 			do{
+			try{
 			System.out.print("Introduce una posicion del array para meter el valor => ");
 			valor=Integer.parseInt(stdin.readLine())-1;
-			}while(valor<0 || valor>=array.length);
+			correcto=true;
+			}catch(Exception e){
+				System.out.println("La posicion del array es incorrecta");
+				correcto=false;
+			}
+			}while(valor<0 || valor>=array.length || correcto==false);
 			break;
 		}
 		return valor;
 	}
 	public static int[] crear_rellenar(int dim) throws NumberFormatException, IOException{
+		/*
+		 * Aquest metode el que fa es rebre la longitud que volem el array.
+		 * Crear un array amb aquesta longitud.
+		 * Recorre cada "casella" del array i omplirla amb un numero aleatori del 0 al 100
+		 * retorna el array omplert.
+		 */
 	int [] array=new int[dim];
 	for(int i=0; i<dim; i++){
-		array[i]=(int)(Math.random()*101);
+		array[i]=(int)(Math.random()*101);//PQ 101? pq queremos valores del 0 al 100
 	}
 	return array;
 	}
 	public static int[] modificar(int[] array, int val, int pos){
+		/*
+		 * Aquest metode el que fa es rebre un array, un valor i una posició.
+		 * Fica en la pos del array el valor.
+		 * retorna el array modificat.
+		 */
 		array[pos]=val;
 		return array;
 	}
 	public static void imprimir(int[] array){
-
+		/*
+		 * Aquest metode el que da es rebre un array.
+		 * Amb l'ajuda d'un bucle recorre totes les "caselles" del array i les mostre per pantalla
+		 */
 		for(int i=0; i<array.length; i++){
 			System.out.print(array[i]+"\t");
 		}
 		System.out.println("");
 	}
 	public static void get_MaxMin(int[] array){
+		/*
+		 * Aquest metode el que fa es rebre un array.
+		 * Donem valors arbitraris a dos variables per aconseguir trobar el valor maxim i minim del array
+		 * no retornara res imprimira el maxim i el minim per pantalla
+		 */
 		int min=100, max=0;
 		for(int i=0; i<array.length; i++){
 			if(array[i]<min){min=array[i];}
@@ -114,6 +160,12 @@ public class Ex1 {
 		System.out.println("Valor más pequeño => "+min);
 	}
 	public static void get_media(int[] array){
+		/*
+		 * Aquest metode el que fa es rebre un array.
+		 * Sumar tots els valors del array i dividils per la longitud d'aquest "Mitja"
+		 * Un cop tenim la mitja
+		 * recorre el array buscant els valors que son mes grans d'aquesta mitja i els imprimeix per pantalla.
+		 */
 		int suma=0;
 		for(int i=0; i<array.length; i++){
 			suma=suma+array[i];
