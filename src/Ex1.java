@@ -51,9 +51,9 @@ public class Ex1 {
 	private static BufferedReader stdin=new BufferedReader(new InputStreamReader(System.in));
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		byte op=1;
-		int dim=Ex1.pedirvalor(op, null);
-		int[]array=Ex1.crear_rellenar(dim);
-		Ex1.imprimir(array);
+		int dim=Ex1.pedirvalor(op, null);//demanar dimensió array  i capturar la dimensió
+		int[]array=Ex1.crear_rellenar(dim);// crear array amb aquesta dimensió , omplil, capturar array.
+		Ex1.imprimir(array); //imprimir per pantalla aquest array
 		op=2;
 		int val=Ex1.pedirvalor(op, array);//demanar nou valor
 		op=3;
