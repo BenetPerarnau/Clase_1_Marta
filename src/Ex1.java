@@ -47,21 +47,21 @@ import java.io.InputStreamReader;
 
  */
 
-public class Principal {
+public class Ex1 {
 	private static BufferedReader stdin=new BufferedReader(new InputStreamReader(System.in));
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		byte op=1;
-		int dim=Principal.pedirvalor(op, null);
-		int[]array=Principal.crear_rellenar(dim);
-		Principal.imprimir(array);
+		int dim=Ex1.pedirvalor(op, null);
+		int[]array=Ex1.crear_rellenar(dim);
+		Ex1.imprimir(array);
 		op=2;
-		int val=Principal.pedirvalor(op, array);//demanar nou valor
+		int val=Ex1.pedirvalor(op, array);//demanar nou valor
 		op=3;
-		int pos=Principal.pedirvalor(op,array);//demanr pos on anira el nou valor
-		array=Principal.modificar(array, val, pos);//modificar
-		Principal.imprimir(array);
-		Principal.get_MaxMin(array);
-		Principal.get_media(array);
+		int pos=Ex1.pedirvalor(op,array);//demanr pos on anira el nou valor
+		array=Ex1.modificar(array, val, pos);//modificar
+		Ex1.imprimir(array);
+		Ex1.get_MaxMin(array);
+		Ex1.get_media(array);
 		
 	}
 	public static int pedirvalor(byte op, int[]array) throws NumberFormatException, IOException{
