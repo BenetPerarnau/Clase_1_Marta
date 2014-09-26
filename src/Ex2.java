@@ -102,6 +102,13 @@ public class Ex2 {
 		else System.out.println("El pocentaje de Mujeres en la universidad es => "+valor+"%");
 	}
 	private static void cal_Por_H_M_Trabajadores(int[][]array, byte sexo){
+		/*
+		 * Aquest metode rep el array i el sexe que busquem
+		 * recorrem amb un bucle les files i busquem que a la casella 0 tinguem el valor del sexe
+		 * i a la casella 1 el valor "1" 1=Si treballen
+		 * si compleix amb les dos condicions anira suman les persones que son del sexe desitjat i que a mes
+		 * treballen. Un cop sumades les dividira per toes i les multiplicara per 100
+		 */
 		
 		byte cont=0;
 		for(int i=0; i<array.length; i++){
@@ -114,8 +121,8 @@ public class Ex2 {
 	}
 	private static byte preguntar() throws NumberFormatException, IOException{
 		/*
-		 * Este metodo es el menu que el usuario tendra para consultar el array
-		 * retornara la opcion para llamar a un metodo o a otro.
+		 * Aquest metode es el menu que el usuario tindra per consultar el array
+		 * retornara la opcio para cridar a un metode o a un altre.
 		 */
 		System.out.println("1. Calcular porcentaje de Hombre");
 		System.out.println("2. Calcular porcentaje de Mujeres");
